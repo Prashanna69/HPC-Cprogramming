@@ -1,23 +1,41 @@
-#include <pthread.h>
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
 
-void *threadA(void *p) {
-  for (int i = 0; i < 10; i++) {
-    printf("Thread ID %ld: i=%d\n", pthread_self(), i);
-    usleep(1000);
+int main() {
+  int *numbers;
+  int size;
+
+  // Seed the random number generator
+  srand(time(NULL));
+
+  // Ask the user for the array size between 1 and 50
+  do {
+    printf("Enter the size of the array (1-50): ");
+    scanf("%d", &size);
+  } while (size < 1 || size > 50);
+
+  // Allocate memory for the array using malloc
+  numbers = (int *)malloc(size * sizeof(int));
+
+  if (numbers == NULL) {
+    fprintf(stderr, "Memory allocation failed\n");
+    return 1;
   }
-}
-void *threadB(void *p) {
-  for (int i = 0; i < 10; i++) {
-    printf("Thread ID %ld: i=%d\n", pthread_self(), i);
-    usleep(1000);
+
+  // Fill the array with random numbers
+  for (int i = 0; i < size; i++) {
+    numbers[i] = rand();
   }
-}
-void main() {
-  pthread_t thrID1, thrID2;
-  pthread_create(&thrID1, NULL, threadA, NULL);
-  pthread_create(&thrID2, NULL, threadB, NULL);
-  pthread_join(thrID1, NULL);
-  pthread_join(thrID2, NULL);
+
+  // Print the values of the array
+  printf("Array elements:\n");
+  for (int i = 0; i < size; i++) {
+    printf("%d is %d\n", i, numbers[i]);
+  }
+
+  // Free the allocated memory
+  free(numbers);
+
+  return 0;
 }
