@@ -39,3 +39,8 @@ int main() {
 
   return 0;
 }
+
+// Write in terminal to run the program
+// gcc Question5.c -o Question5
+// after getting non error
+// ./Question5
