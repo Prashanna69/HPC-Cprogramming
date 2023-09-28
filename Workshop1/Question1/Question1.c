@@ -7,3 +7,8 @@ int main(int argc, char *argv[]) { // Declaring command line arguements
   printf("Hello %s, you are %d years old.", name, age); // Printing the output
   return 0; // return 0 to indicate successful program execution
 }
+
+// Write in terminal to run the program
+// gcc Question1.c -o Question1
+// after getting non error
+// ./Question1

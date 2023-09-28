@@ -25,3 +25,8 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
+
+// Write in terminal to run the program
+// gcc Question4.c -o Question4
+// after getting non error
+// ./Question4

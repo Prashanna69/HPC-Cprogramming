@@ -12,3 +12,8 @@ int main() {
   printf("Hello %s, you are %d years old.", name, age); // Display an output
   return 0; // Return 0 to indicate successful program execution
 }
+
+// Write in terminal to run the program
+// gcc Question2.c -o Question2
+// after getting non error
+// ./Question2
