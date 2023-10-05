@@ -10,4 +10,7 @@ int main(int argc, char const *argv[]) {
   for (int i = 0; i < size; i++) {
     printf("%d Array element store in %d Address \n", *(m + i), (m + i));
   }
+  for (int i = 0; i < size; i++) {
+    printf("*(m+%d)=%d,(m+%d)=%d\n", i, *(m + i));
+  }
 }
